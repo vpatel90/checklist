@@ -1,11 +1,23 @@
 <h1>Lists#show</h1>
 <p>Find me in app/views/lists/show.html.erb</p>
 
-<h1> <%= @list.name %> </h1>
+<h1> <%= @list.name %>
+      <%= link_to "/lists/#{(@list.id)}/reset", method: :put do %>
+      <small> Reset </small>
+      <% end %>
+</h1>
 
 <ul>
 <% @tasks.each do |task| %>
   <%= render partial: 'taskitem',
       locals: { task: task }%>
 <% end %>
+    <li>
+      <%= form_for(@task) do |f| %>
+
+      <%= f.text_field :body, placeholder: "Enter New Task" %>
+      <%= f.hidden_field :list_id, value: @list.id %>
+      <%= f.submit %>
+      <% end %>
+    </li>
 </ul>

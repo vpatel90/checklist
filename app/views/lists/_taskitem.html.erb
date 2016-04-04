@@ -1,1 +1,14 @@
-<li> <%= task.body %> </li>
+<li> <%= task.body %>
+    <% if task.status? %>
+      <%= link_to task_path(task.id, value:'incomplete'), method: :put do %>
+        Incomplete
+      <% end %>
+    <% else %>
+      <%= link_to task_path(task.id, value:'complete'), method: :put do %>
+        Complete
+      <% end %>
+    <% end %>
+    <%= link_to task_path(task.id, value:'complete'), method: :delete do %>
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    <% end %>
+   </li>
