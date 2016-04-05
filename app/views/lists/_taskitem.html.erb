@@ -10,7 +10,11 @@
     <% end %>
   </div>
 
+<% if task.status? %>
 <div class="col-md-5 col-xs-5">
+<% else %>
+<div class="col-md-5 col-xs-5">
+<% end %>
   <% if params[:activate].to_i == task.id %>
     <%= f.text_field :body, class:"form-control" %>
     <%= f.hidden_field :list_id, value: @list.id %>
@@ -38,11 +42,11 @@
 </div>
 <div class="col-md-2 col-xs-2">
     <% if task.status? %>
-      <%= link_to task_path(task.id, value:'incomplete'), method: :put do %>
+      <%= link_to task_path(task.id, value:'incomplete'), class:"complete-task", method: :put do %>
         Make Incomplete
       <% end %>
     <% else %>
-      <%= link_to task_path(task.id, value:'complete'), method: :put do %>
+      <%= link_to task_path(task.id, value:'complete'), class:"incomplete-task", method: :put do %>
         Make Complete
       <% end %>
     <% end %>

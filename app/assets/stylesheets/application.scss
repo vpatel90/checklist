@@ -41,6 +41,17 @@ body {
   border: solid 1px #DDDDDD;
 }
 
+.row {
+  padding: 10px;
+  border-bottom: solid 1px #DDD;
+}
+
+.complete-task {
+  color: green;
+}
+.incomplete-task {
+  color: #D9534F;
+}
 .table-header {
   padding-left: 40px;
 }
