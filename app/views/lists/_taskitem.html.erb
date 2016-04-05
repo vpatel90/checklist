@@ -1,4 +1,14 @@
-<li> <%= task.body %>
+
+
+<div class="row">
+  <div class="col-md-1 col-xs-1 text-center">
+  <%= task.position %>
+  </div>
+
+<div class="col-md-5 col-xs-5">
+<%= task.body %>
+</div>
+<div class="col-md-4 col-xs-4">
     <% if task.status? %>
       <%= link_to task_path(task.id, value:'incomplete'), method: :put do %>
         Incomplete
@@ -8,7 +18,11 @@
         Complete
       <% end %>
     <% end %>
+</div>
+<div class="col-md-2 col-xs-2">
     <%= link_to task_path(task.id, value:'complete'), method: :delete do %>
       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
     <% end %>
-   </li>
+</div>
+
+</div>

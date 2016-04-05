@@ -1,23 +1,27 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+
 
 <h1> <%= @list.name %>
       <%= link_to "/lists/#{(@list.id)}/reset", method: :put do %>
-      <small> Reset </small>
+      <small> Click to Reset </small>
       <% end %>
 </h1>
 
-<ul>
+<div class="table-header"><%= render partial: 'taskheader' %></div>
+
+<ol>
+
 <% @tasks.each do |task| %>
   <%= render partial: 'taskitem',
       locals: { task: task }%>
 <% end %>
+</ol>
+<ul>
     <li>
       <%= form_for(@task) do |f| %>
 
       <%= f.text_field :body, placeholder: "Enter New Task" %>
       <%= f.hidden_field :list_id, value: @list.id %>
-      <%= f.submit %>
+      <%= f.submit "Create Task", class: "btn-sm btn-primary"%>
       <% end %>
     </li>
 </ul>

@@ -16,3 +16,28 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+body {
+  padding-top: 40px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 100px;
+  }
+}
+
+.btn, .btn-lg, .btn-sm {
+	border-radius: 0px;
+}
+
+.list-table {
+
+  margin-top: 60px;
+  max-width: 600px;
+  border: solid 1px #DDDDDD;
+}
+
+.table-header {
+  padding-left: 40px;
+}

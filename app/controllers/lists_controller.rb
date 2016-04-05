@@ -5,7 +5,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @tasks = @list.tasks
+    @tasks = @list.tasks.order(position: :asc)
     @task = Task.new
   end
 
