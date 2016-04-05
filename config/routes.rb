@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'lists/:id/tasks.json' => 'lists_api#show_tasks'
+  get 'lists/:id.json' => 'lists_api#show'
+  get 'lists.json' => 'lists_api#index'
+
+
   resources :tasks
 
   put 'lists/:id/reset' => 'lists#reset'

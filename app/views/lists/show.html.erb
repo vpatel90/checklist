@@ -16,12 +16,17 @@
 <% end %>
 </ol>
 <ul>
-    <li>
-      <%= form_for(@task) do |f| %>
-
-      <%= f.text_field :body, placeholder: "Enter New Task" %>
+  <div class="row">
+    <%= form_for(@task) do |f| %>
+      <div class="text-center col-md-1 col-xs-1">
+        <%= f.number_field :position, value: @list.tasks.count + 1, class:"form-control", min: 1, max: @list.tasks.count + 1 %>
+      </div>
+      <div class="col-md-5 col-xs-5">
+      <%= f.text_field :body, class:"form-control", placeholder: "Enter New Task" %>
       <%= f.hidden_field :list_id, value: @list.id %>
-      <%= f.submit "Create Task", class: "btn-sm btn-primary"%>
-      <% end %>
-    </li>
+    </div>
+    <%= f.submit "Create Task", class: "btn-sm btn-primary"%>
+    <% end %>
+
+  </div>
 </ul>
