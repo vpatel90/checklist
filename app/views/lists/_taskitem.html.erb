@@ -39,11 +39,11 @@
 <div class="col-md-2 col-xs-2">
     <% if task.status? %>
       <%= link_to task_path(task.id, value:'incomplete'), method: :put do %>
-        Incomplete
+        Make Incomplete
       <% end %>
     <% else %>
       <%= link_to task_path(task.id, value:'complete'), method: :put do %>
-        Complete
+        Make Complete
       <% end %>
     <% end %>
 </div>
