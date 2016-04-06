@@ -4,6 +4,9 @@
       <%= link_to "/lists/#{(@list.id)}/reset", method: :put do %>
       <small> Click to Reset </small>
       <% end %>
+      <%= link_to list_path(@list.id), method: :delete do %>
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <% end %>
 </h1>
 
 <div class="table-header"><%= render partial: 'taskheader' %></div>

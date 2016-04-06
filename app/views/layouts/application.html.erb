@@ -21,6 +21,10 @@
   </ul>
 </nav>
 <div class='container'>
+<br>
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
+
 <%= yield %>
 </div>
 

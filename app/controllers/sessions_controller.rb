@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate_user
   def sign_in
   end
 
@@ -20,7 +21,7 @@ class SessionsController < ApplicationController
     flash[:notice] = "Goodbye!"
     redirect_to root_path
   end
-  
+
   def sign_out
   end
 end
