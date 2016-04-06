@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
 
+
+
+  get '/sign_in', to: 'sessions#sign_in', as: 'sign_in'
+  post '/sign_in', to: 'sessions#create'
+  get '/sign_out', to: 'sessions#sign_out', as: 'sign_out'
+  delete '/sign_out', to: 'sessions#destroy'
+
+
+
   get 'lists/:id/tasks.json' => 'lists_api#show_tasks'
   get 'lists/:id.json' => 'lists_api#show'
   get 'lists.json' => 'lists_api#index'
 
-
+  resources :users
   resources :tasks
 
   put 'lists/:id/reset' => 'lists#reset'

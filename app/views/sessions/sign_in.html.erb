@@ -1,0 +1,12 @@
+<h1>Sign In</h1>
+
+<%= form_tag '/sign_in', method: :POST do %>
+  <%= label_tag :user_name %>
+  <%= text_field_tag :user_name %>
+
+  <br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+
+  <%= submit_tag "Submit" %>
+  <% end %>

@@ -10,7 +10,14 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <ul class="nav nav-pills nav-justified">
     <li class="btn btn-default"><%= link_to 'Home', root_path %></li>
-    <li class="btn btn-default"><a href="#">Login?(Not Available)</a></li>
+    <% unless signed_in? %>
+      <li class="btn btn-default"><%= link_to 'Login', sign_in_path %></li>
+      <li class="btn btn-default"><%= link_to 'Sign Up', new_user_path %></li>
+    <% end %>
+    <% if signed_in? %>
+      <li class="btn btn-default"><%= link_to 'Logout', sign_out_path, method:"DELETE" %></li>
+      <li class="btn btn-default"><%= link_to 'New List', new_list_path %></li>
+    <% end %>
   </ul>
 </nav>
 <div class='container'>
