@@ -1,4 +1,5 @@
 class Api::ListsController < ApplicationController
+  protect_from_forgery with: :null_session
   skip_before_action :authenticate_user
   def index
     render json: List.all
@@ -12,7 +13,7 @@ class Api::ListsController < ApplicationController
   end
 
   def create
-    list = List.create!(name: params[:name])
+    list = List.create(name: params[:name])
     render json: list
   rescue ActiveRecord::RecordInvalid
     render json: { message: "Invalid Input", status: 400 }, status: 400
@@ -32,6 +33,7 @@ class Api::ListsController < ApplicationController
   def destroy
     list = List.find(params[:id])
     list.destroy
+    render json: { message: "Success", status: 200 }
   rescue ActiveRecord::RecordNotFound
     render json: { message: "Not found", status: 404 }, status: 404
   end
