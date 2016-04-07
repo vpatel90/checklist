@@ -6,6 +6,7 @@ class Api::ListsController < ApplicationController
 
   def show
     render json: List.find(params[:id])
+                     .to_json(include: :tasks)
   rescue ActiveRecord::RecordNotFound
     render json: { message: "Not found", status: 404 }, status: 404
   end

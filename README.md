@@ -11,6 +11,11 @@
 * Tasks can be added, edited, marked as complete/incomplete and deleted
 * There is also a reset button that marks all items as incomplete
 
+### User creation and authentication
+
+### API
+* can be accessed by `/api/lists/:id`
+
 
 Access the site on Heroku!
-`https://checklist-manager-app.herokuapp.com/`
+`https://checkmate-login.herokuapp.com/`
